@@ -1,5 +1,20 @@
 .product-card {
-  border: 1px solid black;
-  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   padding: 16px;
+  border: 2px solid var(--black);
+  border-radius: 4px;
+}
+
+.product-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-card__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }

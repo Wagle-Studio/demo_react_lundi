@@ -6,18 +6,19 @@ interface ProductCardProps {
   description: string;
 }
 
+// Composant en charge de créer la carte d'un produit
+// Idée : pourrait adopter plusieurs mise en forme, une carte classique et une carte highlight
 export const ProductCard = ({ title, description }: ProductCardProps) => {
   return (
     <div className="product-card">
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <Button
-        name="Je suis un bouton primaire"
-        variant="primary"
-        disabled={true}
-        size="large"
-      />
-      <Button name="Je suis un bouton secondaire" variant="secondary" />
+      <div className="product-card__header">
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+      <div className="product-card__actions">
+        <Button name="Ajouter aux favoris" variant="primary" disabled={true} />
+        <Button name="Ajouter au panier" variant="secondary" />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
+.header__tools {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.header__tools__nav {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  list-style: none;
+}
+
+.header__tools__cart {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 4px 6px;
+  border: 1px solid var(--black);
+  box-sizing: border-box;
+}

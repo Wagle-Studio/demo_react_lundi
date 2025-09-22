@@ -1,39 +1,24 @@
+import type { Product } from "../../core/CoreTypes";
 import { ProductCard } from "../productCard/ProductCard";
 import "./productList.css";
 
-export const ProductList = () => {
-  const products = [
-    {
-      title: "Chaussures de sport",
-      description:
-        "Légères et confortables, idéales pour la course et la salle.",
-    },
-    {
-      title: "Casque audio",
-      description: "Son haute qualité avec réduction de bruit active.",
-    },
-    {
-      title: "Sac à dos",
-      description: "Résistant à l’eau, parfait pour le travail ou les voyages.",
-    },
-    {
-      title: "Montre connectée",
-      description: "Suivi de la santé, notifications et design élégant.",
-    },
-  ];
+interface ProductListProps {
+  products: Product[];
+}
 
+// Composant en charge de créer la liste des produits
+// Idée : pourrait par exemple prendre en charge les filtres et tries des produits
+export const ProductList = ({ products }: ProductListProps) => {
   return (
-    <div>
-      <ul>
-        {products.map((product, index) => (
-          <li key={index}>
-            <ProductCard
-              title={product.title}
-              description={product.description}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="product-list">
+      {products.map((product, index) => (
+        <li key={`product-list-item-${index}`}>
+          <ProductCard
+            title={product.title}
+            description={product.description}
+          />
+        </li>
+      ))}
+    </ul>
   );
 };
