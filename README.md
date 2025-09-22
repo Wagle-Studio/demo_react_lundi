@@ -1,69 +1,60 @@
-# React + TypeScript + Vite
+# Exercice React - useState
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Le hook `useState` permet de déclarer et gérer l’état local d’un composant fonctionnel. Il est indispensable pour créer des interfaces interactives en permettant aux composants de stocker et de modifier des données sans dépendre d’un état global.
 
-Currently, two official plugins are available:
+Importez `useState` depuis React avant de l’utiliser :
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```jsx
+import { useState } from "react";
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Une fois importé, il permet de déclarer un état au sein du composant de la manière suivante :
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```jsx
+const [state, setState] = useState(initialState);
 ```
+
+- `state` : variable qui contient l'état actuel.
+- `setState` : fonction qui permet de mettre à jour l'état.
+- `initialState` : la valeur initiale de l'état.
+
+## Votre mission
+
+## Consigne : Découverte du hook `useState`
+
+Pour vous exercer à la prise en main du hook d’état `useState`, créez l’arborescence et les composants suivants :
+
+**1. Le parent : `Counter.tsx`**
+
+- Déclare la variable d’état `count` à l’aide de `useState`.
+- Stocke la valeur du compteur total actuel.
+- Son unique rôle est de gérer l’état : l’affichage et les actions sont délégués aux composants enfants.
+
+**2. L’affichage : `CounterScore.tsx`**
+
+- Reçoit `count` en propriété.
+- Affiche la valeur actuelle du compteur.
+- Si la valeur de `count` est égale à 0 affichez un message, exemple : "Compteur en veille, utilisez les boutons pour commencer"
+- Si la valeur de `count` est négative, affichez un message supplémentaire sous le total du compteur, exemple : "Attention, valeur négative"
+- Si la valeur de `count` est supérieur à 10, affichez un message supplémentaire sous le total du compteur, exemple : "Ça fait beaucoup la non ?"
+
+**3. L’incrémenteur : `CounterIncrement.tsx`**
+
+- Reçoit `count` ainsi que la fonction de mise à jour associée.
+- Contient un bouton qui incrémente le compteur lorsqu’on clique dessus.
+
+**4. Le décrémenteur : `CounterDecrement.tsx`**
+
+- Reçoit `count` ainsi que la fonction de mise à jour associée.
+- Contient un bouton qui décrémente le compteur lorsqu’on clique dessus.
+
+**Objectif**
+Assemblez ces composants pour obtenir un compteur complet :
+
+- un parent qui gère l’état,
+- un composant qui affiche la valeur,
+- deux boutons pour incrémenter et décrémenter le compteur.
+
+---
+
+> 💡 **Note** : Ce découpage en plusieurs composants n’est pas représentatif d’une pratique professionnelle. Il s’agit d’un exercice pédagogique destiné à vous entraîner à manipuler `useState`. Le résultat final ne cherche pas à être optimisé.
