@@ -1,0 +1,22 @@
+.button {
+}
+
+.button--primary {
+  background-color: lightblue;
+}
+
+.button--secondary {
+  background-color: lightcoral;
+}
+
+.button--default {
+  padding: 12px 8px;
+}
+
+.button--medium {
+  padding: 16px 12px;
+}
+
+.button--large {
+  padding: 24px 16px;
+}
