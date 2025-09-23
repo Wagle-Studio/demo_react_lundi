@@ -4,11 +4,16 @@ import "./ProductCard.css";
 interface ProductCardProps {
   title: string;
   description: string;
+  addCarItems: (itemName: string) => void;
 }
 
 // Composant en charge de créer la carte d'un produit
 // Idée : pourrait adopter plusieurs mise en forme, une carte classique et une carte highlight
-export const ProductCard = ({ title, description }: ProductCardProps) => {
+export const ProductCard = ({
+  title,
+  description,
+  addCarItems,
+}: ProductCardProps) => {
   return (
     <div className="product-card">
       <div className="product-card__header">
@@ -17,7 +22,11 @@ export const ProductCard = ({ title, description }: ProductCardProps) => {
       </div>
       <div className="product-card__actions">
         <Button name="Ajouter aux favoris" variant="primary" disabled={true} />
-        <Button name="Ajouter au panier" variant="secondary" />
+        <Button
+          name="Ajouter au panier"
+          variant="secondary"
+          onClick={() => addCarItems(title)}
+        />
       </div>
     </div>
   );

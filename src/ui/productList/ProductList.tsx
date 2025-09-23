@@ -4,11 +4,12 @@ import "./productList.css";
 
 interface ProductListProps {
   products: Product[];
+  addCarItems: (itemName: string) => void;
 }
 
 // Composant en charge de créer la liste des produits
 // Idée : pourrait par exemple prendre en charge les filtres et tries des produits
-export const ProductList = ({ products }: ProductListProps) => {
+export const ProductList = ({ products, addCarItems }: ProductListProps) => {
   return (
     <ul className="product-list">
       {products.map((product, index) => (
@@ -16,6 +17,7 @@ export const ProductList = ({ products }: ProductListProps) => {
           <ProductCard
             title={product.title}
             description={product.description}
+            addCarItems={addCarItems}
           />
         </li>
       ))}
